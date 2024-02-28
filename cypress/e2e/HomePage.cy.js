@@ -23,14 +23,17 @@ describe('Open Mac Page',() =>{
         cy.get('img#empresa').should('exist');
     })
     it('Student Login', () => {
-        cy.get('a[href="/portada/persona/"]').should('exist');
-        cy.get('a[href="/portada/persona/"]').click();
+        cy.get('a[href="/portada/persona/"]').as('PersonA')
+        cy.get('@PersonA').should('exist');
+        cy.get('@PersonA').click();
         cy.get('img#estudiante').should('exist');
         cy.contains('p','Alumno/Egresado').should('exist');
         cy.get('p#opc1').click();
         cy.get('#usernames').type('419077006');
-
-
     })
+
+
+
+    
 
 })
